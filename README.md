@@ -1,2 +1,2 @@
-# controlUMT
-pequeño sistema de control escolar con motivo educacional hecho en java
+# ControlUMT
+Pequeño sistema de control escolar con motivo educacional hecho en java
