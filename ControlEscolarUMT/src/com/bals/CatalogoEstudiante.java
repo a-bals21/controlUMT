@@ -2,14 +2,21 @@ package com.bals;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * La clase CatalogoEstudiante, se encarga de la parte de salida de consola 
+ * de las operaciones que podemos hacer con los estudiantes
+ * @version 0.1.1, 24/09/22
+ * @author Angel Balderas
+ *
+ */
 public class CatalogoEstudiante {
+	
     //ATRIBUTOS
     private Scanner scanner = new Scanner(System.in);
 
     //MÉTODOS
     public Integer solicitarMatricula() {
-        System.out.print("Escribe matricula: ");
+        System.out.print("Escribe la matricula del alumno: ");
         return scanner.nextInt();
     }
 
@@ -56,7 +63,7 @@ public class CatalogoEstudiante {
     }
 
     public Integer menu() {
-        System.out.print("\n\tMENU\n");
+        System.out.print("\n\tMENU ESTUDIANTE\n");
         System.out.println("1. Agregar Estudiante");
         System.out.println("2. Borrar Estudiante");
         System.out.println("3. Actualizar Estudiante");
@@ -106,10 +113,6 @@ public class CatalogoEstudiante {
     }
 
     public void msgVuelvaPronto() {
-        System.out.print("\n\tGracias por utilizar el sistema...");
-    }
-
-    public void msgVersion() {
-        System.out.println("\n\tControl Escolar v0.1.1");
+        System.out.print("\n\tSaliendo del MENU ESTUDIANTE...\n");
     }
 }//Fin de clase

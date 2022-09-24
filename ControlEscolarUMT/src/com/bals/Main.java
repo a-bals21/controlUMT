@@ -3,8 +3,13 @@ package com.bals;
 public class Main {
     //MAIN
     public static void main(String[] args) {
-        CatalogoEstudiante vista = new CatalogoEstudiante();
-        ControladorEstudiante Estudiantes  = new ControladorEstudiante(vista);
-        Estudiantes.menuEstudiante();
+    	CatalogoPrincipal vista = new CatalogoPrincipal();
+    	CatalogoEstudiante vistaEstudiante = new CatalogoEstudiante();
+    	CatalogoProfesor vistaProfesor = new CatalogoProfesor();
+    	
+    	ControladorPrincipal programa = new ControladorPrincipal(vista, vistaEstudiante, vistaProfesor);
+    	
+    	programa.menuPrincipal();
+        
     }
 }

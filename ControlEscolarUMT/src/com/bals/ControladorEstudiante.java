@@ -10,7 +10,6 @@ public class ControladorEstudiante {
     public ControladorEstudiante(CatalogoEstudiante vista) {
         this.estList = new ArrayList<Estudiante>();
         this.vista = vista;
-        vista.msgVersion();
     }
 
     public void addEstudiante() {
@@ -29,25 +28,25 @@ public class ControladorEstudiante {
         Integer aux;
         while (opcion != 6) {
             switch (vista.menu()) {
-                case 1: //Añadir estudiante
+                case 1: 												//Añadir estudiante
                 	addEstudiante(); 
                 	break;
-                case 2: //Borrar estudiante
+                case 2: 												//Borrar estudiante
                     aux = vista.solicitarMatricula();
                     vista.imprimeInfoBorrado(borrarEstudiante(aux));
                     break;
-                case 3: //Actualizar estudiante
+                case 3: 												//Actualizar estudiante
                 	aux = vista.solicitarMatricula();
                     actualizarEstudiante(aux);
                 	break;
-                case 4: //Mostrar todos los estudiantes
+                case 4: 												//Mostrar todos los estudiantes
                 	vista.readTEstudiantes(estList); 
                 	break;
-                case 5: //Mostrar un estudiante
+                case 5: 												//Mostrar un estudiante
                 	aux = vista.solicitarMatricula();
                 	readEstudiante(aux);
                 	break;
-                case 6: //Salir del menú
+                case 6: 												//Salir del menú
                     vista.msgVuelvaPronto();
                 	opcion = 6; 
                 	break;
@@ -73,22 +72,6 @@ public class ControladorEstudiante {
             return false;
         }
     }
-    /*
-    private void actualizarEstudiante(Integer matricula) {
-        Integer indiceEstudiante = buscarEstudiante(matricula);
-        if (indiceEstudiante != -1) {
-            obj1 = new Estudiante(
-                    vista.solicitarMatricula(),
-                    vista.solicitarNombre(),
-                    vista.solicitarEdad(),
-                    vista.solicitarSemestre(),
-                    vista.solicitarFacultad(),
-                    vista.solicitarPromedio());
-            estList.set(indiceEstudiante, obj1);
-            vista.msgActualizado();
-        }
-    }
-     */
 
     private void actualizarEstudiante(Integer matricula) {
         Integer indiceEstudiante = buscarEstudiante(matricula);

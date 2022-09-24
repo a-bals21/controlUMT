@@ -7,12 +7,12 @@ public class Estudiante {
      * @author Angel Balderas
      * @version 0.0.1
      */
-    private Integer matricula;
-    private String nombre;
-    private Integer edad;
-    private Integer semestre;
-    private String facultad;
-    private Double promedio;
+    private Integer matricula;	//Matricula del estudiante
+    private String nombre;		//Nombre del estudiante
+    private Integer edad;		//Edad del estudiante
+    private Integer semestre;	//Semestre del estudiante
+    private String facultad;	//Facultad del estudiante
+    private Double promedio;	//Promedio general del estudiante
 
     //CONSTRUCTOR
     public Estudiante() {
@@ -24,7 +24,11 @@ public class Estudiante {
         setPromedio(0d);
     }
 
-    public Estudiante(Integer matricula, String nombre, Integer edad, Integer semestre, String facultad, Double promedio) {
+    public Estudiante(
+    		Integer matricula, String nombre, 
+    		Integer edad, Integer semestre, 
+    		String facultad, Double promedio
+    		) {
         this.matricula = matricula;
         this.nombre = nombre;
         this.edad = edad;
