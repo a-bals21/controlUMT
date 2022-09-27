@@ -1,17 +1,18 @@
 package com.bals;
 
-import M.q.S;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * clase definida para leer el nombre de las asignaturas, los creditos que vale y el semestre permitido
+ * catalogo que lee informacion relacionada con las asignaturas en el semestre.
+ * 
  */
 public class CatalogoAsignatura {
-
+	
+	//atributos
     private Scanner scanner = new Scanner(System.in);
 
+    //metodos
     public String SolicitarNombre(){
         System.out.println("Escribe el nombre de la asignatura: ");
         return scanner.nextLine();
@@ -42,7 +43,9 @@ public class CatalogoAsignatura {
         System.out.println("1.- agregar asignatura");
         System.out.println("2.- borrar asignatura");
         System.out.println("3.- actualizar la asignatura");
-        System.out.println("4.- salir");
+        System.out.println("4.- desplegar lista de asignaturas");
+        System.out.println("5.- buscar asignaturas");
+        System.out.println("6.- salir");
         System.out.println("\topcion: ");
         Integer opcion = scanner.nextInt();
         System.out.println("\n");
@@ -58,5 +61,24 @@ public class CatalogoAsignatura {
         Integer opcion = scanner.nextInt();
         System.out.println("\n");
         return opcion;
+    }
+    public void imprimeInfoBorrada(boolean e) {
+    	if(e) {
+    		msgBaja();
+    	}else {
+    		msgnoRegistro();
+    	}
+    }
+    public void msgBaja() {
+    	System.out.println("\n\tborrado exitosamente\n");
+    }
+    public void msgnoRegistro(){
+    	System.out.println("\n\tno se encuentra la materia\n");
+    }
+    public void msgError() {
+    	System.out.println("\n\tHa ocurrido un error\n");
+    }
+    public void msgVuelvaPronto() {
+    	System.out.println("\n\tSaliendo del menu Estudiante...");
     }
 }
