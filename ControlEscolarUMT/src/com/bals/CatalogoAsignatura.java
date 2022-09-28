@@ -13,17 +13,17 @@ public class CatalogoAsignatura {
     private Scanner scanner = new Scanner(System.in);
 
     //metodos
-    public String SolicitarNombre(){
+    public String SolicitarAsignatura(){
         System.out.println("Escribe el nombre de la asignatura: ");
         return scanner.nextLine();
     }
 
-    public Integer SolocitarSemestre(){
+    public Integer SolicitarSemestre(){
         System.out.println("Escribe la asignatura a la que pertenece");
         return scanner.nextInt();
     }
 
-    public Integer SolictarCreditos(){
+    public Integer SolicitarCreditos(){
         System.out.println("Escribe los creditos que vale la asignatura");
         return scanner.nextInt();
     }
