@@ -55,7 +55,7 @@ public class CatalogoAsignatura {
     public Integer menuModificarAsi(){
         System.out.println("\n\tMenú Modificación\n");
         System.out.println("1.- Nombre de la asignatura");
-        System.out.println("2.- Semestre de la asignatura");
+        System.out.println("2.- Semestre al que pertenece la asignatura");
         System.out.println("3.- creditos que vale la asignatura");
         System.out.println("\topcion: ");
         Integer opcion = scanner.nextInt();
