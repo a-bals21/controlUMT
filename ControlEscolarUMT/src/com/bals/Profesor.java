@@ -1,5 +1,10 @@
 package com.bals;
 
+/**
+* Esta clase abstrae los posible datos de un profesor necesarios para un control de ellos
+* @author Angel Balderas
+* @version 0.0.1
+*/
 public class Profesor {
 	
     //ATRIBUTOS

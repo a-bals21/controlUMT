@@ -1,6 +1,7 @@
 package com.bals;
 
 import java.util.Scanner;
+
 /**
  * La clase CatalogoPrincipal, se encarga de la parte de salida de consola 
  * de las operaciones que podemos hacer con el programa entero

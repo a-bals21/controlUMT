@@ -1,18 +1,23 @@
 package com.bals;
 
+import java.util.ArrayList;
+
+/**
+* Esta clase abstrae los posible datos de un estudiante necesarios para un control de ellos
+* @author Angel Balderas
+* @version 0.0.1
+* 
+*/
 public class Estudiante {
+	
     //ATRIBUTOS
-    /**
-     * Esta clase abstrae los posible datos de un estudiante necesarios para un control de ellos
-     * @author Angel Balderas
-     * @version 0.0.1
-     */
-    private Integer matricula;	//Matricula del estudiante
+    private Integer matricula;  //Matricula del estudiante
     private String nombre;		//Nombre del estudiante
     private Integer edad;		//Edad del estudiante
     private Integer semestre;	//Semestre del estudiante
     private String facultad;	//Facultad del estudiante
     private Double promedio;	//Promedio general del estudiante
+    private ArrayList<Asignatura> asigList;  //Asignaturas que el estudiante posee
 
     //CONSTRUCTOR
     public Estudiante() {
@@ -40,7 +45,7 @@ public class Estudiante {
     //MÉTODOS
 
     /**
-     * devuelve la matricula del estudiante
+     * Devuelve la matricula del estudiante
      * @return matricula
      */
     public Integer getMatricula() {
@@ -48,7 +53,7 @@ public class Estudiante {
     }
 
     /**
-     * coloca la matricula del estudiante
+     * Coloca la matricula del estudiante
      * @param matricula
      */
     public void setMatricula(Integer matricula) {
@@ -93,6 +98,14 @@ public class Estudiante {
 
     public void setPromedio(Double promedio) {
         this.promedio = promedio;
+    }
+    
+    public void setAsignatura(ArrayList<Asignatura> asigList) {
+    	this.asigList = asigList;
+    }
+    
+    public ArrayList<Asignatura> getAsignaturas() {
+    	return asigList;
     }
 
     @Override

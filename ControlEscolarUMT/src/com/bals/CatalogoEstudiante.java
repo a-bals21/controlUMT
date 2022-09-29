@@ -2,9 +2,9 @@ package com.bals;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
- * La clase CatalogoEstudiante, se encarga de la parte de salida de consola 
- * de las operaciones que podemos hacer con los estudiantes
+ * La clase CatalogoEstudiante se encarga de las salidas de consola que tiene las operaciones de Estudiante
  * @version 0.1.1, 24/09/22
  * @author Angel Balderas
  *

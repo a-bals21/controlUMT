@@ -2,7 +2,15 @@ package com.bals;
 
 import java.util.ArrayList;
 
+/**
+* La clase ControladorEstudiante se encarga de las operaciones de Estudiante
+* @version 0.1.1, 24/09/22
+* @author Angel Balderas
+*
+*/
 public class ControladorEstudiante {
+	
+	//ATRIBUTOS
     private ArrayList<Estudiante> estList;
     private CatalogoEstudiante vista;
     private Estudiante obj1;
@@ -46,7 +54,9 @@ public class ControladorEstudiante {
                 	aux = vista.solicitarMatricula();
                 	readEstudiante(aux);
                 	break;
-                case 6: 												//Salir del menú
+                case 6:
+                	//Mostrar Menu para asignaturas de alumno
+                case 7: 												//Salir del menú
                     vista.msgVuelvaPronto();
                 	opcion = 6; 
                 	break;

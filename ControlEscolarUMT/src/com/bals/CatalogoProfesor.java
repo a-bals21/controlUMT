@@ -3,6 +3,12 @@ package com.bals;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * La clase CatalogoProfesor se encarga de las salidas de consola que tiene las operaciones de Profesor
+ * @version 0.1.1, 24/09/22
+ * @author Angel Balderas
+ *
+ */
 public class CatalogoProfesor {
 	
 	//ATRIBUTOS

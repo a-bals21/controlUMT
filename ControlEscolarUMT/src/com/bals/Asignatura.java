@@ -1,11 +1,10 @@
 package com.bals;
 
 /**
- * La clase Asignatura es la abstracción de los atributos que contiene una asignatura
- * @version 0.1.1, 24/09/22
- * @author Angel Balderas
- *
- */
+* Esta clase abstrae los posible datos de una asignatura necesarios para un control de ellos
+* @author Angel Balderas
+* @version 0.0.1
+*/
 public class Asignatura {
 	
 	//ATRIBUTOS

@@ -1,12 +1,15 @@
 package com.bals;
-
+/**
+* La clase ControladorPrincipal se encarga de las operar el programa entero
+* @version 0.1.1, 24/09/22
+* @author Angel Balderas
+*
+*/
 public class ControladorPrincipal {
 	
 	//ATRIBUTOS
 	CatalogoPrincipal vista;
-	CatalogoEstudiante vistaEstudiante;
     ControladorEstudiante estudiante;
-	CatalogoProfesor vistaProfesor;
 	ControladorProfesor profesor;
 	
 	//CONTRUCTOR
@@ -17,8 +20,6 @@ public class ControladorPrincipal {
 			//añadir catalogo de las asignaturas
 			) {
 		this.vista = vistaPrincipal;
-		this.vistaEstudiante = vistaEstudiante;
-		this.vistaProfesor = vistaProfesor;
 		this.estudiante = new ControladorEstudiante(vistaEstudiante);
 		this.profesor = new ControladorProfesor(vistaProfesor);
 		vistaPrincipal.msgVersion();

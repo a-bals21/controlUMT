@@ -1,7 +1,12 @@
 package com.bals;
 
 import java.util.ArrayList;
-
+/**
+* La clase ControladorEstudiante se encarga de las operaciones de Profesor
+* @version 0.1.1, 24/09/22
+* @author Angel Balderas
+*
+*/
 public class ControladorProfesor {
 	private ArrayList<Profesor> proList;
     private CatalogoProfesor vista;
