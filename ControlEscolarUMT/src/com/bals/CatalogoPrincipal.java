@@ -17,7 +17,7 @@ public class CatalogoPrincipal {
 	public Integer menu() {
 		System.out.print("\n\tMENU PRINCIPAL\n");
         System.out.println("1. Estudiante");
-        System.out.println("2. Prodesor");
+        System.out.println("2. Profesor");
         System.out.println("3. Asignatura");
         System.out.println("4. Salir");
         System.out.print("\tOpción: ");

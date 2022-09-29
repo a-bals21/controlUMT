@@ -4,23 +4,21 @@ public class ControladorPrincipal {
 	
 	//ATRIBUTOS
 	CatalogoPrincipal vista;
-	CatalogoEstudiante vistaEstudiante;
-    ControladorEstudiante estudiante;
-	CatalogoProfesor vistaProfesor;
-	ControladorProfesor profesor;
+    ControladorEstudiante vistaEstudiante;
+	ControladorProfesor vistaProfesor;
+	ControladorAsignatura vistaAsignatura;
 	
 	//CONTRUCTOR
 	ControladorPrincipal (
 			CatalogoPrincipal vistaPrincipal,
 			CatalogoEstudiante vistaEstudiante, 
-			CatalogoProfesor vistaProfesor
-			//añadir catalogo de las asignaturas
+			CatalogoProfesor vistaProfesor,
+			CatalogoAsignatura vistaAsignatura
 			) {
 		this.vista = vistaPrincipal;
-		this.vistaEstudiante = vistaEstudiante;
-		this.vistaProfesor = vistaProfesor;
-		this.estudiante = new ControladorEstudiante(vistaEstudiante);
-		this.profesor = new ControladorProfesor(vistaProfesor);
+		this.vistaEstudiante = new ControladorEstudiante(vistaEstudiante);
+		this.vistaProfesor = new ControladorProfesor(vistaProfesor);
+		this.vistaAsignatura = new ControladorAsignatura(vistaAsignatura);
 		vistaPrincipal.msgVersion();
 	}
 	
@@ -30,13 +28,13 @@ public class ControladorPrincipal {
         while (opcion != 6) {
             switch (vista.menu()) {
                 case 1: 
-                	estudiante.menuEstudiante();
+                	vistaEstudiante.menuEstudiante();
                 	break;
                 case 2: 
-                    profesor.menuProfesor();
+                    vistaProfesor.menuProfesor();
                     break;
                 case 3: 
-                	//colocar el menu de asignaturas
+                	vistaAsignatura.menuAsignatura();
                 	break;
                 case 4: 
                 	vista.msgVuelvaPronto();

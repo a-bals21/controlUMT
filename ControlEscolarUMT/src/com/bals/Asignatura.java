@@ -9,6 +9,7 @@ package com.bals;
 public class Asignatura {
 	
 	//ATRIBUTOS
+	private String clave;
 	private String nombre;
 	private Integer semestre;
 	private Integer credito;
@@ -16,22 +17,32 @@ public class Asignatura {
 	
 	//CONTRUCTORES
 	Asignatura() {
+		setClave("NULL");
 		setNombre("NULL");
 		setSemestre(0);
 		setCredito(0);
 	}
 	
 	Asignatura (
+			String clave,
 			String nombre,
 			Integer semestre,
 			Integer credito
 			) {
+		this.clave = clave;
 		this.nombre = nombre;
 		this.semestre = semestre;
 		this.credito = credito;
 	}
 	
 	//SETTERS AND GETTERS
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -56,6 +67,14 @@ public class Asignatura {
 	public void setCredito(Integer credito) {
 		this.credito = credito;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Asignatura{" +
+				"clave='" + clave + '\'' +
+				", nombre='" + nombre + '\'' +
+				", semestre=" + semestre +
+				", credito=" + credito +
+				'}';
+	}
 }
