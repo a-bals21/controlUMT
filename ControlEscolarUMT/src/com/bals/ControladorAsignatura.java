@@ -125,4 +125,8 @@ public class ControladorAsignatura {
     	
     	return asignaturas;
     }
+    
+    public void leerTAsig() {
+    	vista.readTAsignatura(asigList);
+    }
 } //fin de la Clase

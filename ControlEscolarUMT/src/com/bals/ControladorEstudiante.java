@@ -81,16 +81,19 @@ public class ControladorEstudiante {
     		switch (vista.menuCargaAsignaturas()) {
     			case 1: //Cargar Asignatura
     				
+    				//Obtiene las asignaturas del alumno, por su semestre
 					ArrayList<Asignatura> asignaturas = controlAsignatura.getAsignaturasXSemestre(
     						estList.get(indiceEstudiante).getSemestre()
     						);
-    				//aux = vista.asignaturasDisponibles(asignaturas);
-    				asignaturas.toString();
+					//muestra las asignaturas a elegir y cuida que este dentro de las opciones
+    				aux = vista.asignaturasDisponibles(asignaturas);
     				
     				if (aux != -1) {
-    					if (estList.get(indiceEstudiante).getAsignaturas().contains(asignaturas.get(aux))) {
+    					
+    					//verifica asignatura repetida / verifica exceso de creditos 
+    					if (estList.get(indiceEstudiante).getAsignaturas().contains(asignaturas.get(aux))) { 
     						vista.msgAsignaturaRepe();
-    					} else if (creditosEstudiante(indiceEstudiante) + asignaturas.get(aux).getCredito() < 25){
+    					} else if (creditosEstudiante(indiceEstudiante) + asignaturas.get(aux).getCredito() < 25) {
     						estList.get(indiceEstudiante).setAsignatura(asignaturas.get(aux));
     					} else {
     						vista.msgCreditosExcedidos();

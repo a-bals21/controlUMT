@@ -70,7 +70,7 @@ public class CatalogoEstudiante {
         	System.out.println((i+1) + ".\t"+asignaturas.get(i).toString());
         }
         
-        System.out.print("\tNumero de asignatura: ");
+        System.out.print("\tNúmero de asignatura: ");
         opcion = scanner.nextInt();
         System.out.print("\n");
         if (opcion <= 0 || opcion >= asignaturas.size()) {
