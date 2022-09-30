@@ -57,7 +57,7 @@ public class CatalogoProfesor {
     }
 
     public Integer menu() {
-        System.out.print("\n\tMENU PROFESOR\n");
+        System.out.print("\n\tMENÚ PROFESOR\n");
         System.out.println("1. Agregar Profesor");
         System.out.println("2. Borrar Profesor");
         System.out.println("3. Actualizar Profesor");
@@ -71,10 +71,10 @@ public class CatalogoProfesor {
     }
 
     public Integer menuModificarProfesor() {
-        System.out.print("\n\tMenu Modificación\n");
+        System.out.print("\n\tMenú Modificación\n");
         System.out.println("1. Nombre Profesor");
         System.out.println("2. Edad Profesor");
-        System.out.println("3. Telefono Profesor");
+        System.out.println("3. Teléfono Profesor");
         System.out.println("4. Salir");
         System.out.print("\tOpción: ");
         Integer opcion = scanner.nextInt();
@@ -91,15 +91,15 @@ public class CatalogoProfesor {
     }
     
     public void msgActualizado() {
-    	System.out.print("\n\tActualización EXITOSA\n");
+    	System.out.print("\n\t¡Actualización EXITOSA!\n");
     }
 
     public void msgBaja() {
-        System.out.print("\n\tBaja exitosa\n");
+        System.out.print("\n\t¡Baja EXITOSA!\n");
     }
 
     public void msgNoRegistro() {
-        System.out.print("\n\tNo se encuentra el elemento\n");
+        System.out.print("\n\tNo se encuentra el elemento...\n");
     }
 
     public void msgError() {
@@ -107,6 +107,6 @@ public class CatalogoProfesor {
     }
 
     public void msgVuelvaPronto() {
-        System.out.print("\n\tSaliendo de MENU PROFESOR...\n");
+        System.out.print("\n\tSaliendo de MENÚ PROFESOR...\n");
     }
 }

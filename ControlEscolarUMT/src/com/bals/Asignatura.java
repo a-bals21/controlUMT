@@ -70,11 +70,9 @@ public class Asignatura {
 
 	@Override
 	public String toString() {
-		return "Asignatura{" +
-				"clave='" + clave + '\'' +
-				", nombre='" + nombre + '\'' +
-				", semestre=" + semestre +
-				", credito=" + credito +
-				'}';
+		return "Clave: " + clave +
+				"; asignatura: " + nombre +
+				"; semestre: " + semestre +
+				"; creditos: " + credito;
 	}
 }

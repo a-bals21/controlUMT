@@ -1,6 +1,11 @@
 package com.bals;
 
+/**
+ * La clase Main es la clase encargada de ejecutar el programa entero
+ * Repositorio: https://github.com/a-bals21/controlUMT
+ */
 public class Main {
+
     //MAIN
     public static void main(String[] args) {
     	CatalogoPrincipal vista = new CatalogoPrincipal();

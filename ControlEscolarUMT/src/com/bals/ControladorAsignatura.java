@@ -43,7 +43,11 @@ public class ControladorAsignatura {
                     actualizarAsignatura(aux);
                     break;
                 case 4: 												//Mostrar todas las asignaturas
-                    vista.readTAsignatura(asigList);
+                    if (!asigList.isEmpty()){
+                        vista.readTAsignatura(asigList);
+                    } else {
+                        vista.msgNoRegistros();
+                    }
                     break;
                 case 5: 												//Mostrar una asignatura
                     aux = vista.solicitarClave();

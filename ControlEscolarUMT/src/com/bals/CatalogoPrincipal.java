@@ -16,10 +16,10 @@ public class CatalogoPrincipal {
 	
 	//METODOS
 	public Integer menu() {
-		System.out.print("\n\tMENU PRINCIPAL\n");
-        System.out.println("1. Estudiante");
-        System.out.println("2. Prodesor");
-        System.out.println("3. Asignatura");
+		System.out.print("\n\tMENÚ PRINCIPAL\n");
+        System.out.println("1. Menú Estudiante");
+        System.out.println("2. Menú Profesor");
+        System.out.println("3. Menú Asignatura");
         System.out.println("4. Salir");
         System.out.print("\tOpción: ");
         Integer opcion = scanner.nextInt();
@@ -32,6 +32,6 @@ public class CatalogoPrincipal {
     }
 
     public void msgVersion() {
-        System.out.println("\n\tControl Escolar v0.2.1");
+        System.out.println("\n\tControl Escolar v1.1.1");
     }
 }

@@ -36,7 +36,7 @@ public class CatalogoAsignatura {
     }
     
     public void readAsignatura(Asignatura asignatura) {
-        System.out.println("\n\tAsignatura");
+        System.out.print("\n\tASIGNATURA\n");
         System.out.println(asignatura);
     }
     
@@ -45,7 +45,7 @@ public class CatalogoAsignatura {
     }
     
     public void readTAsignatura(ArrayList<Asignatura> asignaturas){
-        System.out.println("\n\tLista de asignaturas");
+        System.out.print("\n\tLISTA DE ASIGNATURAS\n");
         asignaturas.forEach(System.out::println);
         System.out.println("\n");
     }
@@ -57,7 +57,7 @@ public class CatalogoAsignatura {
         System.out.println("3. Actualizar Asignatura");
         System.out.println("4. Desplegar Lista");
         System.out.println("5. Desplegar Asignatura");
-        System.out.println("6. salir");
+        System.out.println("6. Salir");
         System.out.print("\topcion: ");
         Integer opcion = scanner.nextInt();
         System.out.print("\n");
@@ -85,18 +85,25 @@ public class CatalogoAsignatura {
     }
 
     public void msgActualizado() {
-        System.out.print("\n\tActualización EXITOSA\n");
+        System.out.print("\n\t¡Actualización EXITOSA!\n");
     }
     
     public void msgBaja() {
-    	System.out.println("\n\tBorrado exitosamente\n");
+    	System.out.println("\n\t¡Borrado EXITOSO!\n");
     }
+
     public void msgNoRegistro(){
-    	System.out.println("\n\tNo existe esa Asignatura\n");
+    	System.out.println("\n\tNo existe esa Asignatura...\n");
     }
+
+    public void msgNoRegistros() {
+        System.out.println("\n\tSin asignaturas aún...\n");
+    }
+
     public void msgError() {
-    	System.out.println("\n\tHa ocurrido un error\n");
+    	System.out.println("\n\t¡Ha ocurrido un error!\n");
     }
+
     public void msgVuelvaPronto() {
     	System.out.println("\n\tSaliendo del menu Asignatura...");
     }

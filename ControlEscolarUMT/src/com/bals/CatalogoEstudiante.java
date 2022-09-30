@@ -48,17 +48,17 @@ public class CatalogoEstudiante {
     }
 
     public void readEstudiante(Estudiante estudiante) {
-        System.out.print("\n\tESTUDIANTE");
+        System.out.print("\n\tESTUDIANTE\n");
         System.out.println(estudiante);
     }
     
     public void readEstudiante() {
-        System.out.print("\n\tNo se encontró el registro\n");
+        System.out.println("\n\tNo se encontró el registro");
     }
     
     public void readTEstudiantes(ArrayList<Estudiante> estudiantes) {
-        System.out.print("\n\tLISTA DE ESTUDIANTES");
-        estudiantes.forEach(System.out::print);
+        System.out.print("\n\tLISTA DE ESTUDIANTES\n");
+        estudiantes.forEach(System.out::println);
         System.out.print("\n");
     }
     
@@ -67,28 +67,28 @@ public class CatalogoEstudiante {
     	
     	System.out.println("\n\tLISTA DE ASIGNATURAS (Disponibles por semestre)\n\tOpcion\t\tAsignatura");
         for (int i = 0; i<asignaturas.size(); i++) {
-        	System.out.println((i+1) + ".\t"+asignaturas.get(i).toString());
+        	System.out.println("\t"+ (i+1) + ".\t\t\t"+asignaturas.get(i).toString());
         }
         
-        System.out.print("\tNúmero de asignatura: ");
+        System.out.print("\tNo. de Opción: ");
         opcion = scanner.nextInt();
         System.out.print("\n");
-        if (opcion <= 0 || opcion >= asignaturas.size()) {
+        if (opcion <= 0 || opcion > asignaturas.size()) {
         	System.out.println("\tOpcion fuera de rango");
         	opcion = -1;
         }
         
-		return opcion;
+		return opcion - 1;
     }
     
     public void asignaturasCargadas(ArrayList<Asignatura> asignaturas) {
-    	System.out.print("\n\tLISTA DE ESTUDIANTES");
-        asignaturas.forEach(System.out::print);
+    	System.out.print("\n\tLISTA DE ASIGNATURAS DE ESTUDIANTE\n");
+        asignaturas.forEach(System.out::println);
         System.out.print("\n");
     }
 
     public Integer menu() {
-        System.out.print("\n\tMENU ESTUDIANTE\n");
+        System.out.print("\n\tMENÚ ESTUDIANTE\n");
         System.out.println("1. Agregar Estudiante");
         System.out.println("2. Borrar Estudiante");
         System.out.println("3. Actualizar Estudiante");
@@ -103,7 +103,7 @@ public class CatalogoEstudiante {
     }
 
     public Integer menuModificarEstudiante() {
-        System.out.print("\n\tMenu Modificación\n");
+        System.out.print("\n\tMenú Modificación\n");
         System.out.println("1. Nombre Estudiante");
         System.out.println("2. Edad Estudiante");
         System.out.println("3. Promedio Estudiante");
@@ -119,7 +119,7 @@ public class CatalogoEstudiante {
      * @return Integer
      */
     public Integer menuCargaAsignaturas() {
-    	System.out.println("\n\tMENU DE ASIGNATURAS DE ESTUDIANTE");
+    	System.out.println("\n\tMENÚ DE ASIGNATURAS DE ESTUDIANTE");
     	System.out.println("1. Cargar Asignatura");
     	System.out.println("2. Mostrar Asignaturas cargadas");
     	System.out.println("3. Eliminar Asignatura");
@@ -136,33 +136,37 @@ public class CatalogoEstudiante {
             msgNoRegistro();
         }
     }
-    
+
+    public void msgCreditosEstudiante(int creditos) {
+        System.out.println("\tCreditos del estudiante: "+creditos);
+    }
+
     public void msgActualizado() {
-    	System.out.print("\n\tActualización EXITOSA\n");
+    	System.out.print("\n\t¡Actualización EXITOSA!\n");
     }
     
     public void msgAsignaturaRepe() {
-    	System.out.println("\tAsignatura repetida");
+    	System.out.println("\t¡Asignatura repetida, ya se encuentra cargada al estudiante!");
     }
     
     public void msgCreditosExcedidos() {
-    	System.out.println("\tNo puedes cargar la asignatura, creditos excedidos");
+    	System.out.println("\t¡No puedes cargar la asignatura, creditos excedidos!");
     }
     
     public void msgCargaExitosa() {
-    	System.out.println("\tAsignatura agregada exitosamente");
+    	System.out.println("\t¡Asignatura agregada exitosamente!");
     }
     
     public void msgAsignaturaElim() {
-    	System.out.println("\tAsignatura eliminada del cardex");
+    	System.out.println("\t¡Asignatura eliminada del cardex!");
     }
 
     public void msgBaja() {
-        System.out.print("\n\tBaja exitosa\n");
+        System.out.print("\n\t¡Baja EXITOSA!\n");
     }
 
     public void msgNoRegistro() {
-        System.out.print("\n\tNo existe Estudiante\n");
+        System.out.print("\n\tNO existe Estudiante\n");
     }
     
     public void msgSinAsignaturas() {
@@ -174,10 +178,10 @@ public class CatalogoEstudiante {
     }
 
     public void msgVuelvaPronto() {
-        System.out.print("\n\tSaliendo del MENU ESTUDIANTE...\n");
+        System.out.print("\n\tSaliendo del MENÚ ESTUDIANTE...\n");
     }
     
     public void msgSaliendoSubMenu() {
-        System.out.print("\n\tSaliendo deL MENU ASIGNATURAS DE ESTUDIANTE...\n");
+        System.out.print("\n\tSaliendo deL MENÚ ASIGNATURAS DE ESTUDIANTE...\n");
     }
 }//Fin de clase

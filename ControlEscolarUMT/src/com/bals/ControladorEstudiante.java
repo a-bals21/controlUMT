@@ -16,10 +16,10 @@ public class ControladorEstudiante {
     private ControladorAsignatura controlAsignatura;
     private Estudiante obj1;
 
-    public ControladorEstudiante(CatalogoEstudiante vista, CatalogoAsignatura vistaAsignatura) {
+    public ControladorEstudiante(CatalogoEstudiante vista, ControladorAsignatura asignatura) {
         this.estList = new ArrayList<Estudiante>();
         this.vista = vista;
-        controlAsignatura = new ControladorAsignatura(vistaAsignatura);
+        controlAsignatura = asignatura;
     }
 
     public void addEstudiante() {
@@ -78,6 +78,7 @@ public class ControladorEstudiante {
     	while (opcion != 4) {
         	int aux = 0;
 			vista.readEstudiante(estList.get(indiceEstudiante));
+            vista.msgCreditosEstudiante(creditosEstudiante(indiceEstudiante));
     		switch (vista.menuCargaAsignaturas()) {
     			case 1: //Cargar Asignatura
     				
@@ -95,13 +96,14 @@ public class ControladorEstudiante {
     						vista.msgAsignaturaRepe();
     					} else if (creditosEstudiante(indiceEstudiante) + asignaturas.get(aux).getCredito() < 25) {
     						estList.get(indiceEstudiante).setAsignatura(asignaturas.get(aux));
+                            vista.msgCargaExitosa();
     					} else {
     						vista.msgCreditosExcedidos();
     					}
     				}
     				break;
     			case 2: //Mostrar Asignaturas Cargadas
-    				if (estList.get(indiceEstudiante).getAsignaturas() != null) {
+    				if ((estList.get(indiceEstudiante).getAsignaturas() != null) || !(estList.get(indiceEstudiante).getAsignaturas().isEmpty())) {
     					vista.asignaturasCargadas(estList.get(indiceEstudiante).getAsignaturas());
     				} else {
     					vista.msgSinAsignaturas();
@@ -144,9 +146,13 @@ public class ControladorEstudiante {
     
     private Integer creditosEstudiante(Integer indiceEstudiante) {
     	Integer suma = 0;
-    	for (int i = 0; i<estList.get(indiceEstudiante).getAsignaturas().size(); i++) {
-    		suma += estList.get(indiceEstudiante).getAsignaturas().get(i).getCredito();
-    	}
+        if (estList.get(indiceEstudiante).getAsignaturas() != null || !(estList.get(indiceEstudiante).getAsignaturas().isEmpty())) {
+            for (int i = 0; i<estList.get(indiceEstudiante).getAsignaturas().size(); i++) {
+                suma += estList.get(indiceEstudiante).getAsignaturas().get(i).getCredito();
+            }
+        } else {
+            return 0;
+        }
     	
     	return suma;
     }

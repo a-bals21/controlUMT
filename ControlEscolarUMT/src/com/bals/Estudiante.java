@@ -40,6 +40,7 @@ public class Estudiante {
         this.semestre = semestre;
         this.facultad = facultad;
         this.promedio = promedio;
+        this.asigList = new ArrayList<Asignatura>();
     }
 
     //MÉTODOS
@@ -114,13 +115,11 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "\nEstudiante{" +
-                "matricula=" + matricula +
-                ", nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", semestre=" + semestre +
-                ", facultad='" + facultad + '\'' +
-                ", promedio=" + promedio +
-                '}';
+        return "Matricula: " + matricula +
+                "; Estudiante: " + nombre +
+                "; edad: " + edad +
+                "; semestre: " + semestre +
+                "; facultad: " + facultad +
+                "; promedio: " + promedio;
     }
 }

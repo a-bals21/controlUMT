@@ -79,13 +79,11 @@ public class Profesor {
 
 	@Override
 	public String toString() {
-		return "Profesor [" +
-				"nombre='" + nombre + '\'' + 
-				", clave=" + clave + 
-				", edad=" + edad + 
-				", rfc='" + rfc + '\'' + 
-				", telefono=" + telefono + 
-				"]";
+		return "Profesor: " + nombre +
+				"; clave: " + clave +
+				"; edad: " + edad +
+				"; RFC: " + rfc +
+				"; tel:" + telefono;
 	}
     
 	
