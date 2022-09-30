@@ -116,14 +116,13 @@ public class ControladorAsignatura {
     
     public ArrayList<Asignatura> getAsignaturasXSemestre (Integer semestre) {
     	ArrayList<Asignatura> asignaturas = new ArrayList<Asignatura>();
-    	/*
+    	
     	for (int i = 0; i < asigList.size(); i++) {
     		if (asigList.get(i).getSemestre().equals(semestre)) {
     			asignaturas.add(asigList.get(i));
     		}
     	}
-    	*/
-    	asignaturas = asigList;
+    	
     	return asignaturas;
     }
 } //fin de la Clase
