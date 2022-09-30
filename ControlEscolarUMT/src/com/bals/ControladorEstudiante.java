@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
 * La clase ControladorEstudiante se encarga de las operaciones de Estudiante
-* @version 0.1.1, 24/09/22
+* @version 0.2.1, 24/09/22
 * @author Angel Balderas
 *
 */
@@ -13,11 +13,13 @@ public class ControladorEstudiante {
 	//ATRIBUTOS
     private ArrayList<Estudiante> estList;
     private CatalogoEstudiante vista;
+    private ControladorAsignatura controlAsignatura;
     private Estudiante obj1;
 
-    public ControladorEstudiante(CatalogoEstudiante vista) {
+    public ControladorEstudiante(CatalogoEstudiante vista, CatalogoAsignatura vistaAsignatura) {
         this.estList = new ArrayList<Estudiante>();
         this.vista = vista;
+        controlAsignatura = new ControladorAsignatura(vistaAsignatura);
     }
 
     public void addEstudiante() {
@@ -55,13 +57,67 @@ public class ControladorEstudiante {
                 	readEstudiante(aux);
                 	break;
                 case 6:
-                	//Mostrar Menu para asignaturas de alumno
+                	aux = buscarEstudiante(vista.solicitarMatricula());	//Cargar Asignaturas
+                	if (aux != -1) {
+                		menuCargaAsignaturas(aux);
+                	} else {
+                		vista.msgNoRegistro();
+                	}
+                	break;
                 case 7: 												//Salir del menú
                     vista.msgVuelvaPronto();
                 	opcion = 6; 
                 	break;
             }
         } //fin while
+    }
+    
+    public void menuCargaAsignaturas(Integer indiceEstudiante) { 
+    	int opcion = 0;
+    	    	
+    	while (opcion != 4) {
+        	int aux = 0;
+			vista.readEstudiante(estList.get(indiceEstudiante));
+    		switch (vista.menuCargaAsignaturas()) {
+    			case 1: //Cargar Asignatura
+    				
+					ArrayList<Asignatura> asignaturas = controlAsignatura.getAsignaturasXSemestre(
+    						estList.get(indiceEstudiante).getSemestre()
+    						);
+    				//aux = vista.asignaturasDisponibles(asignaturas);
+    				asignaturas.toString();
+    				
+    				if (aux != -1) {
+    					if (estList.get(indiceEstudiante).getAsignaturas().contains(asignaturas.get(aux))) {
+    						vista.msgAsignaturaRepe();
+    					} else if (creditosEstudiante(indiceEstudiante) + asignaturas.get(aux).getCredito() < 25){
+    						estList.get(indiceEstudiante).setAsignatura(asignaturas.get(aux));
+    					} else {
+    						vista.msgCreditosExcedidos();
+    					}
+    				}
+    				break;
+    			case 2: //Mostrar Asignaturas Cargadas
+    				if (estList.get(indiceEstudiante).getAsignaturas() != null) {
+    					vista.asignaturasCargadas(estList.get(indiceEstudiante).getAsignaturas());
+    				} else {
+    					vista.msgSinAsignaturas();
+    				}
+    				break;
+    			case 3: //Eliminar Asignatura
+    				if (estList.get(indiceEstudiante).getAsignaturas() != null) {
+        				aux = vista.asignaturasDisponibles(estList.get(indiceEstudiante).getAsignaturas());
+        				estList.get(indiceEstudiante).removeAsignatura(aux);
+        				vista.msgAsignaturaElim();
+    				} else {
+    					vista.msgSinAsignaturas();
+    				}
+    				break;
+    			case 4:
+    				opcion = 4;
+    				
+    		}
+    	}
     }
 
     private Integer buscarEstudiante(Integer matricula) {
@@ -81,6 +137,15 @@ public class ControladorEstudiante {
         } else {
             return false;
         }
+    }
+    
+    private Integer creditosEstudiante(Integer indiceEstudiante) {
+    	Integer suma = 0;
+    	for (int i = 0; i<estList.get(indiceEstudiante).getAsignaturas().size(); i++) {
+    		suma += estList.get(indiceEstudiante).getAsignaturas().get(i).getCredito();
+    	}
+    	
+    	return suma;
     }
 
     private void actualizarEstudiante(Integer matricula) {

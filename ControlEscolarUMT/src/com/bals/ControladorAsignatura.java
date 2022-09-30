@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * @autor Erika Itza
  */
 public class ControladorAsignatura {
-    private ArrayList<Asignatura> estList;
+    private ArrayList<Asignatura> asigList;
     private CatalogoAsignatura vista;
     private Asignatura obj1;
 
     public ControladorAsignatura(CatalogoAsignatura vista) {
-        this.estList = new ArrayList<Asignatura>();
+        this.asigList = new ArrayList<Asignatura>();
         this.vista = vista;
     }
 
@@ -20,10 +20,10 @@ public class ControladorAsignatura {
         obj1 = new Asignatura(
                 vista.solicitarClave(),
                 vista.solicitarNombre(),
-                vista.solicitarCredito(),
-                vista.solicitarSemestre()
+                vista.solicitarSemestre(),
+                vista.solicitarCredito()
         );
-        estList.add(obj1);
+        asigList.add(obj1);
     }
 
     public void menuAsignatura() {
@@ -43,7 +43,7 @@ public class ControladorAsignatura {
                     actualizarAsignatura(aux);
                     break;
                 case 4: 												//Mostrar todas las asignaturas
-                    vista.readTAsignatura(estList);
+                    vista.readTAsignatura(asigList);
                     break;
                 case 5: 												//Mostrar una asignatura
                     aux = vista.solicitarClave();
@@ -57,9 +57,38 @@ public class ControladorAsignatura {
         } //fin while
     }
 
+    private void actualizarAsignatura(String clave) {
+        Integer indiceAsignatura = buscar(clave);
+        int opcion = 0;
+        if (indiceAsignatura != -1) {
+            while (opcion != 4) {
+                readAsignatura(clave);
+                switch (vista.menuModificarAsignatura()) {
+                    case 1: //Modificar Nombre de la asignatura
+                        asigList.get(indiceAsignatura).setNombre(vista.solicitarNombre());
+                        vista.msgActualizado();
+                        break;
+                    case 2: //Modificar semestre
+                        asigList.get(indiceAsignatura).setSemestre(vista.solicitarSemestre());
+                        vista.msgActualizado();
+                        break;
+                    case 3: //Modificar credito
+                        asigList.get(indiceAsignatura).setCredito(vista.solicitarCredito());
+                        vista.msgActualizado();
+                        break;
+                    case 4:
+                        opcion = 4;
+                        vista.msgVuelvaPronto();
+                }
+            }
+        } else {
+            vista.msgNoRegistro();
+        }
+    }
+
     private Integer buscar(String clave) {
-        for (int i = 0; i < estList.size(); i++) {
-            if (clave.equals(estList.get(i).getClave())) {
+        for (int i = 0; i < asigList.size(); i++) {
+            if (clave.equals(asigList.get(i).getClave())) {
                 return i;
             }
         }
@@ -69,47 +98,32 @@ public class ControladorAsignatura {
     private boolean borrarAsignatura(String clave) {
         Integer indiceAsignatura = buscar(clave);
         if (indiceAsignatura != -1) {
-            estList.remove((int)indiceAsignatura);
+            asigList.remove((int)indiceAsignatura);
             return true;
         } else {
             return false;
         }
     }
 
-    private void actualizarAsignatura(String clave) {
-        Integer indiceAsignatura = buscar(clave);
-        int opcion = 0;
-        if (indiceAsignatura != -1) {
-            while (opcion == 0) {
-                readAsignatura(clave);
-                switch (vista.menuModificarAsignatura()) {
-                    case 1: //Modificar Nombre de la asignatura
-                        estList.get(indiceAsignatura).setNombre(vista.solicitarNombre());
-                        vista.msgActualizado();
-                        break;
-                    case 2: //Modificar semestre
-                        estList.get(indiceAsignatura).setSemestre(vista.solicitarSemestre());
-                        vista.msgActualizado();
-                        break;
-                    case 3: //Modificar creditos
-                        estList.get(indiceAsignatura).setCredito(vista.solicitarCredito());
-                        vista.msgActualizado();
-                        break;
-                    case 4:
-                        opcion = 4;
-                }
-            }
-        } else {
-            vista.msgNoRegistro();
-        }
-    }
-
     private void readAsignatura(String clave) {
         Integer indiceAsignatura = buscar(clave);
         if (indiceAsignatura != -1) {
-            vista.readAsignatura(estList.get(indiceAsignatura));
+            vista.readAsignatura(asigList.get(indiceAsignatura));
         } else {
             vista.readAsignatura();
         }
+    }
+    
+    public ArrayList<Asignatura> getAsignaturasXSemestre (Integer semestre) {
+    	ArrayList<Asignatura> asignaturas = new ArrayList<Asignatura>();
+    	/*
+    	for (int i = 0; i < asigList.size(); i++) {
+    		if (asigList.get(i).getSemestre().equals(semestre)) {
+    			asignaturas.add(asigList.get(i));
+    		}
+    	}
+    	*/
+    	asignaturas = asigList;
+    	return asignaturas;
     }
 } //fin de la Clase

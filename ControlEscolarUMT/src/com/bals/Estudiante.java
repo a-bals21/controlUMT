@@ -100,8 +100,12 @@ public class Estudiante {
         this.promedio = promedio;
     }
     
-    public void setAsignatura(ArrayList<Asignatura> asigList) {
-    	this.asigList = asigList;
+    public void setAsignatura(Asignatura asignatura) {
+    	this.asigList.add(asignatura);
+    }
+    
+    public void removeAsignatura(int i) {
+    	this.asigList.remove(i);
     }
     
     public ArrayList<Asignatura> getAsignaturas() {

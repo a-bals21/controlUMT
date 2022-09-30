@@ -21,7 +21,7 @@ public class ControladorPrincipal {
 			CatalogoAsignatura vistaAsignatura
 			) {
 		this.vista = vistaPrincipal;
-		this.vistaEstudiante = new ControladorEstudiante(vistaEstudiante);
+		this.vistaEstudiante = new ControladorEstudiante(vistaEstudiante, vistaAsignatura);
 		this.vistaProfesor = new ControladorProfesor(vistaProfesor);
 		this.vistaAsignatura = new ControladorAsignatura(vistaAsignatura);
 		vistaPrincipal.msgVersion();
