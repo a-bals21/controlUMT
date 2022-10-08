@@ -6,14 +6,21 @@ package com.bals;
  */
 public class Main {
 
-    //MAIN
+	//ATRIBUTOS
+	static CatalogoPrincipal vista;
+	static CatalogoEstudiante vistaEstudiante;
+	static CatalogoProfesor vistaProfesor;
+	static CatalogoAsignatura vistaAsignatura;
+	static ControladorPrincipal programa;
+
+    //MÉTODO PRINCIPAL
     public static void main(String[] args) {
-    	CatalogoPrincipal vista = new CatalogoPrincipal();
-    	CatalogoEstudiante vistaEstudiante = new CatalogoEstudiante();
-    	CatalogoProfesor vistaProfesor = new CatalogoProfesor();
-    	CatalogoAsignatura vistaAsignatura = new CatalogoAsignatura();
+		vista = new CatalogoPrincipal();
+		vistaEstudiante = new CatalogoEstudiante();
+		vistaProfesor = new CatalogoProfesor();
+    	vistaAsignatura = new CatalogoAsignatura();
     	
-    	ControladorPrincipal programa = new ControladorPrincipal(vista, vistaEstudiante, vistaProfesor, vistaAsignatura);
+    	programa = new ControladorPrincipal(vista, vistaEstudiante, vistaProfesor, vistaAsignatura);
     	
     	programa.menuPrincipal();
         

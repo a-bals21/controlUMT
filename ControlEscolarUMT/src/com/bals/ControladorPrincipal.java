@@ -8,10 +8,10 @@ package com.bals;
 public class ControladorPrincipal {
 	
 	//ATRIBUTOS
-	CatalogoPrincipal vista;
-	ControladorEstudiante vistaEstudiante;
-	ControladorProfesor vistaProfesor;
-	ControladorAsignatura vistaAsignatura;
+	private CatalogoPrincipal vista;
+	private ControladorEstudiante vistaEstudiante;
+	private ControladorProfesor vistaProfesor;
+	private ControladorAsignatura vistaAsignatura;
 	
 	//CONTRUCTOR
 	ControladorPrincipal (
